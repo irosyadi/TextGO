@@ -181,6 +181,7 @@
   "request_permission": "Request Permission",
   "permission_granted": "Granted",
   "auto_start": "Launch on System Startup",
+  "auto_update": "Automatically Check for Updates",
   "minimize_to_tray": "Minimize to Tray on Launch",
   "history_records": "History Records",
   "history_records_retention": "Retention Size",

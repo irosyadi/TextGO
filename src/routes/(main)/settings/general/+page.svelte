@@ -6,6 +6,7 @@
   import {
     accessibility,
     autoStart,
+    autoUpdate,
     historySize,
     longPress,
     longPressDuration,
@@ -158,6 +159,11 @@
       </fieldset>
       <div class="divider my-0 opacity-60"></div>
     {/if}
+    <fieldset class="flex items-center justify-between gap-1">
+      <Label>{m.auto_update()}</Label>
+      <Toggle bind:value={autoUpdate.current} />
+    </fieldset>
+    <div class="divider my-0 opacity-60"></div>
     <fieldset class="flex items-center justify-between gap-1">
       <Label>{m.auto_start()}</Label>
       <Toggle value={autoStart.current} onchange={(event) => toggleAutoStart(event.currentTarget.checked)} />

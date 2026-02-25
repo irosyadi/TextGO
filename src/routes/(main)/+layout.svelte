@@ -3,9 +3,10 @@
   import { resolve } from '$app/paths';
   import { Title } from '$lib/components';
   import { modals } from '$lib/components/Modal.svelte';
+  import { checkForUpdates } from '$lib/components/Updater.svelte';
   import { Moon, Sun } from '$lib/icons';
   import { m } from '$lib/paraglide/messages';
-  import { theme } from '$lib/stores.svelte';
+  import { autoUpdate, theme } from '$lib/stores.svelte';
   import { invoke } from '@tauri-apps/api/core';
   import { listen } from '@tauri-apps/api/event';
   import { getCurrentWindow } from '@tauri-apps/api/window';
@@ -84,6 +85,17 @@
         // pause shortcut handling when window gains focus and there are open modals
         if (modals.size > 0) {
           invoke('pause_shortcut_handling');
+        }
+
+        // auto check for updates once per day
+        if (autoUpdate.current) {
+          const AUTO_UPDATE_KEY = 'lastAutoUpdateCheck';
+          const today = new Date().toDateString();
+          const lastCheck = localStorage.getItem(AUTO_UPDATE_KEY);
+          if (lastCheck !== today) {
+            localStorage.setItem(AUTO_UPDATE_KEY, today);
+            checkForUpdates();
+          }
         }
       } else {
         // resume shortcut handling when window loses focus

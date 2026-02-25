@@ -148,6 +148,9 @@ export const blacklist = persisted<string[]>('blacklist', []);
 // auto start setting
 export const autoStart = persisted<boolean>('autoStart', false);
 
+// auto update setting
+export const autoUpdate = persisted<boolean>('autoUpdate', false);
+
 // minimize to tray setting
 export const minimizeToTray = persisted<boolean>('minimizeToTray', false);
 

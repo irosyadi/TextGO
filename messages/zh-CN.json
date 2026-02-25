@@ -181,6 +181,7 @@
   "request_permission": "请求权限",
   "permission_granted": "已开启",
   "auto_start": "开机自动启动",
+  "auto_update": "自动检查更新",
   "minimize_to_tray": "启动时最小化到托盘",
   "history_records": "历史记录",
   "history_records_retention": "保留条数",
